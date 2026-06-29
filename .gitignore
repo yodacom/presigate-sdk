@@ -1,0 +1,36 @@
+# Secrets and credentials — NEVER commit these
+.env
+.env.*
+*.env
+*.key
+secrets.*
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+venv/
+ft_venv/
+env/
+.venv/
+
+# Freqtrade runtime artifacts — local only, not for sharing
+freqtrade/pilot_dry_run.log
+freqtrade/pilot_dry_run.sqlite
+freqtrade/user_data/
+user_data/
+*.log
+*.sqlite
+*.sqlite3
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Editor artifacts
+.idea/
+.vscode/
+*.swp
+*.swo

@@ -1,0 +1,96 @@
+{
+  "$schema": "https://schema.freqtrade.io/schema.json",
+
+  "max_open_trades": 1,
+  "stake_currency": "USDT",
+  "stake_amount": 100,
+  "tradable_balance_ratio": 0.99,
+  "fiat_display_currency": "USD",
+
+  "timeframe": "1m",
+
+  "dry_run": true,
+  "dry_run_wallet": 1000,
+
+  "cancel_open_orders_on_exit": true,
+
+  "trading_mode": "spot",
+  "margin_mode": "",
+
+  "exchange": {
+    "name": "kraken",
+    "key": "",
+    "secret": "",
+    "ccxt_config": {},
+    "ccxt_async_config": {},
+    "pair_whitelist": [
+      "BTC/USDT"
+    ],
+    "pair_blacklist": []
+  },
+
+  "pairlists": [
+    {
+      "method": "StaticPairList"
+    }
+  ],
+
+  "entry_pricing": {
+    "price_side": "same",
+    "use_order_book": true,
+    "order_book_top": 1,
+    "price_last_balance": 0.0,
+    "check_depth_of_market": {
+      "enabled": false,
+      "bids_to_ask_delta": 1
+    }
+  },
+
+  "exit_pricing": {
+    "price_side": "same",
+    "use_order_book": true,
+    "order_book_top": 1
+  },
+
+  "order_types": {
+    "entry": "limit",
+    "exit": "limit",
+    "stoploss": "market",
+    "stoploss_on_exchange": false
+  },
+
+  "order_time_in_force": {
+    "entry": "GTC",
+    "exit": "GTC"
+  },
+
+  "strategy": "PresigateGatedBTCStrategy",
+  "strategy_path": "<path-to-this-directory>/",
+
+  "presigate": {
+    "shadow_mode": true,
+    "fail_open": true,
+    "timeout_s": 4,
+    "gated_pairs": ["BTC/USDT"],
+    "min_size_usd": 10.0,
+    "force_hold_pct": 0.5,
+    "api_key": ""
+  },
+
+  "bot_name": "presigate-pilot",
+  "initial_state": "running",
+
+  "internals": {
+    "process_throttle_secs": 5
+  },
+
+  "db_url": "sqlite:///pilot_dry_run.sqlite",
+
+  "logfile": "<path-to-this-directory>/pilot_dry_run.log",
+
+  "telegram": {
+    "enabled": false,
+    "token": "",
+    "chat_id": ""
+  }
+}
